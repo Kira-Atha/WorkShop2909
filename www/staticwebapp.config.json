@@ -4,8 +4,10 @@
            "route": "/api/tasks/*",
            "allowedRoles": [
                "authenticated"
-           ],
-           "responseOverrides": {
+           ]
+       } 
+     ],
+     "responseOverrides": {
                 "401": {
                     "rewrite": "/login.html"
                 },
@@ -13,6 +15,4 @@
                     "rewrite" :"/custom-404.html"
                 }
             }
-       } 
-     ]
  }
