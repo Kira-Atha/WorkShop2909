@@ -4,7 +4,10 @@ const empty = document.querySelector('#empty');
 const usernameElement = document.querySelector('#username');
 
 async function getUser() {
-    // TODO
+    const response = await fetch('/.auth/me');
+    const user = await response.json();
+    console.log(user);
+    usernameElement.innerHTML=user.clientPrincipal.userDetails;
 }
 
 async function updateTask() {
@@ -17,7 +20,7 @@ taskformElement.addEventListener('submit', async (e) => {
     const newTaskInput = taskformElement.elements.new_task_input;
 
     const response = await fetch('/api/tasks', {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         },
